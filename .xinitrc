@@ -53,6 +53,8 @@ compton --config ~/.compton.conf -CGb &
 
 unclutter &
 
+feh --bg-max ~/pictures/DSC_1136.JPG --bg-max ~/pictures/DSC_3872.JPG
+
 #twm &
 #xclock -geometry 50x50-1+1 &
 #xterm -geometry 80x50+494+51 &
