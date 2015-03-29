@@ -1,3 +1,4 @@
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -32,6 +33,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 syntax enable
+set hlsearch
 set background=dark
 colorscheme solarized
 
@@ -41,3 +43,10 @@ map <c-l> <c-w>l
 map <c-h> <c-w>h
 
 set guifont=Monospace\ 12
+
+" keep .swp outside of working directory
+set backup
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
+set writebackup

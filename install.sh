@@ -10,3 +10,7 @@ ln -s `pwd`/.gitconfig ~/.gitconfig
 ln -s `pwd`/.gitignore ~/.gitignore
 mkdir ~/.config/QtProject/qtcreator/styles
 ln -s `pwd`/solarized-dark.xml ~/.config/QtProject/qtcreator/styles
+
+mkdir -p ~/.vim/backup
+mkdir -p ~/.vim/swap
+mkdir -p ~/.vim/undo
