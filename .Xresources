@@ -1,0 +1,73 @@
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintfull
+
+URxvt.font: xft:monospace:size=12
+URxvt.boldFont: xft:monospace:bold:size=12
+URxvt.letterSpace: -1
+
+! do not scroll with output
+URxvt.scrollTtyOutput: false
+
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt.scrollWithBuffer: true
+
+! scroll back to the bottom on keypress
+URxvt.scrollTtyKeypress: true
+
+! scroll bar off
+URxvt.scrollBar: false
+
+URxvt.depth: 32
+URxvt.background: [97]#002b36
+URxvt.foreground: #657b83
+!!URxvt.fading: 40
+URxvt.fadeColor: #002b36
+URxvt.cursorColor: #93a1a1
+URxvt.pointerColorBackground: #586e75
+URxvt.pointerColorForeground: #93a1a1
+!! black dark/light
+URxvt.color0: #073642
+URxvt.color8: #002b36
+!! red dark/light
+URxvt.color1: #dc322f
+URxvt.color9: #cb4b16
+!! green dark/light
+URxvt.color2: #859900
+URxvt.color10: #586e75
+!! yellow dark/light
+URxvt.color3: #b58900
+URxvt.color11: #657b83
+!! blue dark/light
+URxvt.color4: #268bd2
+URxvt.color12: #839496
+!! magenta dark/light
+URxvt.color5: #d33682
+URxvt.color13: #6c71c4
+!! cyan dark/light
+URxvt.color6: #2aa198
+URxvt.color14: #93a1a1
+!! white dark/light
+URxvt.color7: #eee8d5
+URxvt.color15: #fdf6e3
+
+! clickable urls
+URxvt.perl-ext-common: default,matcher,tabbed,fullscreen
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+
+! list recent urls
+URxvt.keysym.C-Delete: perl:matcher:last
+URxvt.keysym.M-Delete: perl:matcher:list
+
+! color url
+URxvt.colorUL: #b58900
+
+! URxvt.perl-ext: default,url-select
+! URxvt.keysym.M-u: perl:url-select:select_next
+! URxvt.url-select.launcher: /usr/bin/xdg-open
+! URxvt.url-select.underline: true
+
+URxvt.keysym.F11: perl:fullscreen:switch
