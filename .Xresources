@@ -70,4 +70,7 @@ URxvt.colorUL: #b58900
 ! URxvt.url-select.launcher: /usr/bin/xdg-open
 ! URxvt.url-select.underline: true
 
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
 URxvt.keysym.F11: perl:fullscreen:switch
