@@ -37,6 +37,8 @@ Xft.hintstyle: hintfull
 ! #define S_base2 #073642
 ! #define S_base3 #002b36
 
+URxvt*depth: 32
+
 URxvt*background: S_base03
 URxvt*foreground: S_base0
 URxvt*fading: 40
@@ -61,47 +63,39 @@ URxvt*color13: S_violet
 URxvt*color14: S_base1
 URxvt*color15: S_base3
 
-URxvt.font: xft:monospace:size=12
-URxvt.boldFont: xft:monospace:bold:size=12
-URxvt.letterSpace: -1
+URxvt*font: xft:monospace:size=12
+URxvt*boldFont: xft:monospace:bold:size=12
+URxvt*letterSpace: -1
 
 ! do not scroll with output
-URxvt.scrollTtyOutput: false
-
+URxvt*scrollTtyOutput: false
 ! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
-URxvt.scrollWithBuffer: true
-
+URxvt*scrollWithBuffer: true
 ! scroll back to the bottom on keypress
-URxvt.scrollTtyKeypress: true
-
+URxvt*scrollTtyKeypress: true
 ! scroll bar off
-URxvt.scrollBar: false
+URxvt*scrollBar: false
 
-URxvt.depth: 32
+! extensions
+URxvt*perl-ext-common: default,matcher,clipboard
 
 ! clickable urls
-URxvt.perl-ext-common: default,matcher,tabbed,fullscreen
-URxvt.url-launcher: /usr/bin/xdg-open
-URxvt.matcher.button: 1
+URxvt*url-launcher: /usr/bin/xdg-open
+URxvt*matcher.button: 1
 
 ! list recent urls
-URxvt.keysym.C-Delete: perl:matcher:last
-URxvt.keysym.M-Delete: perl:matcher:list
+URxvt*keysym.C-Delete: perl:matcher:last
+URxvt*keysym.M-Delete: perl:matcher:list
 
 ! color url
-URxvt.colorUL: S_yellow
+URxvt*colorUL: S_yellow
 
-! URxvt.perl-ext: default,url-select
-! URxvt.keysym.M-u: perl:url-select:select_next
-! URxvt.url-select.launcher: /usr/bin/xdg-open
-! URxvt.url-select.underline: true
+URxvt*keysym.Shift-Control-V: perl:clipboard:paste
+URxvt*keysym.Shift-Control-C: perl:clipboard:copy
+URxvt*iso14755: false
+URxvt*iso14755_52: false
 
-URxvt.iso14755: false
-URxvt.iso14755_52: false
-
-URxvt.keysym.F11: perl:fullscreen:switch
-
-URxvt.keysym.Control-Up:    \033[1;5A
-URxvt.keysym.Control-Down:  \033[1;5B
-URxvt.keysym.Control-Left:  \033[1;5D
-URxvt.keysym.Control-Right: \033[1;5C
+URxvt*keysym.Control-Up:    \033[1;5A
+URxvt*keysym.Control-Down:  \033[1;5B
+URxvt*keysym.Control-Left:  \033[1;5D
+URxvt*keysym.Control-Right: \033[1;5C
