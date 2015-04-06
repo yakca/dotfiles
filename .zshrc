@@ -58,3 +58,8 @@ if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
     zle -N zle-line-init
     zle -N zle-line-finish
 fi
+
+alias ..='cd ..'
+alias ls='ls --color=auto --human-readable --group-directories-first --classify'
+alias ll='ls --color=auto -altrh'
+alias grep='grep --colour=auto'
