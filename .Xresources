@@ -98,3 +98,8 @@ URxvt.iso14755: false
 URxvt.iso14755_52: false
 
 URxvt.keysym.F11: perl:fullscreen:switch
+
+URxvt.keysym.Control-Up:    \033[1;5A
+URxvt.keysym.Control-Down:  \033[1;5B
+URxvt.keysym.Control-Left:  \033[1;5D
+URxvt.keysym.Control-Right: \033[1;5C
