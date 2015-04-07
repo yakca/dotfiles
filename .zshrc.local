@@ -6,13 +6,10 @@ setopt appendhistory autocd beep extendedglob nomatch notify
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/kevin/.zshrc'
+zstyle :compinstall filename '/home/kevin/.zshrc.local'
 
-autoload -U compinit promptinit
+autoload -U compinit
 compinit
-promptinit
-prompt walters
-# End of lines added by compinstall
 zstyle ':completion:*' menu select
 
 # create a zkbd compatible hash;
@@ -60,6 +57,3 @@ if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
 fi
 
 alias ..='cd ..'
-alias ls='ls --color=auto --human-readable --group-directories-first --classify'
-alias ll='ls --color=auto -altrh'
-alias grep='grep --colour=auto'

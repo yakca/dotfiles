@@ -1,5 +1,5 @@
 ln -s `pwd`/.zlogin ~/.zlogin
-ln -s `pwd`/.zshrc ~/.zshrc
+ln -s `pwd`/.zshrc.local ~/.zshrc.local
 ln -s `pwd`/.xinitrc ~/.xinitrc
 ln -s `pwd`/.vimrc ~/.vimrc
 ln -s `pwd`/zathurarc ~/.config/zathura/zathurarc
