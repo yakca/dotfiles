@@ -42,9 +42,13 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 set number
+set pastetoggle=<F3>
 nnoremap <F2> :set nonumber!<CR>
 
 set guifont=Monospace\ 12
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
 
 " keep .swp outside of working directory
 set backup
