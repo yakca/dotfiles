@@ -37,6 +37,7 @@ Xft.hintstyle: hintfull
 ! #define S_base2 #073642
 ! #define S_base3 #002b36
 
+URxvt*termName: rxvt
 URxvt*depth: 32
 
 URxvt*background: S_base03
