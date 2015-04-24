@@ -168,6 +168,8 @@ bindsym XF86AudioNext exec cmus-remote -n
 bindsym XF86AudioMute exec amixer -q set Master toggle
 
 bindsym $mod+c exec chromium
+bindsym $mod+m exec firefox
+bindsym $mod+g exec gvim
 
 set $Locker i3lock && sleep 1
 
