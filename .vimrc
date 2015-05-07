@@ -37,16 +37,21 @@ syntax enable
 set hlsearch
 set background=dark
 colorscheme solarized
+set number
 
+" binds
 map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
-set number
+
 set pastetoggle=<F3>
 nnoremap <F2> :set nonumber!<CR>
 
-set guifont=Monospace\ 12
+nnoremap <leader>ev <C-w><C-s><C-l>:e $MYVIMRC<CR>
+
+" gui config
+set guifont=DejaVu\ Sans\ Mono\ 12
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
