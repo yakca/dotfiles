@@ -78,3 +78,9 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers=['flake8', 'python']
 let g:syntastic_python_python_exec = '/usr/bin/python3'
 let g:syntastic_python_flake8_exe='python3 -m flake8'
+
+" watch vimrc for changes and reload
+augroup reload_vimrc " {
+	autocmd!
+	autocmd BufWritePost $MYVIMRC source $MYVIMRC
+augroup END " }
