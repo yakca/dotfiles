@@ -85,6 +85,16 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers=['flake8', 'python']
 let g:syntastic_python_python_exec = '/usr/bin/python3'
 let g:syntastic_python_flake8_exe='python3 -m flake8'
+" Don't warn on
+" E121 continuation line indentation is not a multiple of four
+" E128 continuation line under-indented for visual indent
+" E301 expected 1 blank line, found 0
+" E261 at least two spaces before inline comment
+" E241 multiple spaces after ':'
+" E124 closing bracket does not match visual indentation
+" E126 continuation line over-indented for hanging indent
+" E721 do not compare types, use 'isinstance()'
+let g:syntastic_python_flake8_args='--ignore=E121,E128,E301,E261,E241,E124,E126,E721'
 
 " watch vimrc for changes and reload
 augroup reload_vimrc " {
