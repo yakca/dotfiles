@@ -53,7 +53,10 @@ map <c-h> <c-w>h
 
 set pastetoggle=<F3>
 nnoremap <F2> :set nonumber!<CR>
+nnoremap <F5> :! python %<CR>
+nnoremap <F6> :! python -m unittest %<CR>
 
+" edit vimrc
 nnoremap <leader>ev <C-w><C-s><C-l>:e $MYVIMRC<CR>
 
 " gui config
