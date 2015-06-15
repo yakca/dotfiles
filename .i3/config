@@ -101,7 +101,7 @@ set $tag6 "6"
 set $tag7 "7: music"
 set $tag8 "8: irc"
 set $tag9 "9"
-set $tag0 "0"
+set $tag0 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace $tag1
