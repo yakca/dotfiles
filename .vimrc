@@ -41,9 +41,15 @@ filetype plugin indent on    " required
 
 syntax enable
 set hlsearch
+set ignorecase " ignore case on search
+set smartcase " except when input has capital
+set incsearch " hl while typing
 set background=dark
 colorscheme solarized
 set number
+
+set splitbelow " sp opens below
+set splitright " vs opens right
 
 " binds
 map <c-j> <c-w>j
