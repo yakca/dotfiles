@@ -9,6 +9,7 @@ ln -s `pwd`/.compton.conf ~/.compton.conf
 ln -s `pwd`/.gitconfig ~/.gitconfig
 ln -s `pwd`/.gitignore ~/.gitignore
 ln -s `pwd`/.Xresources ~/.Xresources
+ln -s `pwd`/.tmux.conf ~/.tmux.conf
 mkdir ~/.config/QtProject/qtcreator/styles
 ln -s `pwd`/solarized-dark.xml ~/.config/QtProject/qtcreator/styles
 
