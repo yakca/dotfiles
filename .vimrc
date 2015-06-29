@@ -22,6 +22,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
 Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'voithos/vim-python-matchit'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Shougo/unite.vim'
 
 
 " All of your Plugins must be added before the following line
@@ -65,6 +67,20 @@ nnoremap <F6> :! python -m unittest %<CR>
 
 " edit vimrc
 nnoremap <leader>ev <C-w><C-s><C-l>:e $MYVIMRC<CR>
+
+""" unite binds and config
+" file search
+nnoremap <C-p> :Unite file_rec/async<cr>
+
+" content search
+nnoremap <space>/ :Unite grep:.<cr>
+
+" yank history
+let g:unite_source_history_yank_enable = 1
+nnoremap <space>y :Unite history/yank<cr>
+
+" buffer switching
+nnoremap <space>s :Unite -quick-match buffer<cr>
 
 " gui config
 set guifont=DejaVu\ Sans\ Mono\ 12
