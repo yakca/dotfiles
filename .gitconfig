@@ -17,6 +17,7 @@
 	mnf = merge --no-ff
 	mnff = merge --no-ff
 	mt = mergetool
+	r = remote -v
 	p = format-patch -1
 	serve = !git daemon --reuseaddr --verbose --base-path=. --export-all ./.git
 	sra = svn rebase --all
