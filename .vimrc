@@ -24,6 +24,7 @@ Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'voithos/vim-python-matchit'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/unite.vim'
+Plugin 'mitsuhiko/vim-python-combined'
 
 
 " All of your Plugins must be added before the following line
@@ -103,6 +104,12 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" python
+autocmd FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
+			\ formatoptions=croqj textwidth=79
+let python_highlight_all=1
+let python_slow_sync=1
 
 " py syntastic
 let g:syntastic_python_checkers=['flake8', 'python']
