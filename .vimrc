@@ -65,6 +65,7 @@ nnoremap <F2> :set nonumber!<CR>
 nnoremap <F4> :noh<CR>
 nnoremap <F5> :! python %<CR>
 nnoremap <F6> :! python -m unittest %<CR>
+nnoremap <F7> :! py.test<CR>
 
 " edit vimrc
 nnoremap <leader>ev <C-w><C-s><C-l>:e $MYVIMRC<CR>
