@@ -2,6 +2,7 @@
 	b = branch
 	ba = branch -a
 	bu = !git pull --rebase && git submodule foreach git pull --rebase origin master
+	c = clone --recursive
 	ci = commit
 	co = checkout
 	d = diff
@@ -17,12 +18,12 @@
 	mnf = merge --no-ff
 	mnff = merge --no-ff
 	mt = mergetool
-	r = remote -v
 	p = format-patch -1
-	serve = !git daemon --reuseaddr --verbose --base-path=. --export-all ./.git
-	sra = svn rebase --all
+	r = remote -v
+	s = status -s
 	sh = !git-sh
 	st = status
+	sra = svn rebase --all
 	stm = status --untracked=no
 	pullsrb = !git stash save && git pull --rebase && git stash pop && echo 'Success!'
 [user]
