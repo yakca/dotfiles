@@ -5,6 +5,7 @@ alias v="vim"
 alias vu="vim +PluginUpdate +qall"
 alias mkdir="mkdir -pv"
 alias df="df -h"
+alias vs="vagrant ssh"
 alias vsu="vagrant up; and vagrant ssh"
 
 # Pacman alias examples
