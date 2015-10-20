@@ -128,6 +128,10 @@ let g:syntastic_python_flake8_exe='python3 -m flake8'
 " E721 do not compare types, use 'isinstance()'
 let g:syntastic_python_flake8_args='--ignore=E121,E128,E301,E261,E241,E123,E124,E126,E721'
 
+" ruby
+autocmd FileType ruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+			\ autoindent textwidth=119
+
 " watch vimrc for changes and reload
 augroup reload_vimrc " {
 	autocmd!
