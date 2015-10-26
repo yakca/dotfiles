@@ -7,6 +7,7 @@ alias mkdir="mkdir -pv"
 alias df="df -h"
 alias vs="vagrant ssh"
 alias vsu="vagrant up; and vagrant ssh"
+alias vh="vagrant halt"
 
 # Pacman alias examples
 alias pacupg='sudo pacman -Syu'		# Synchronize with repositories and then upgrade packages that are out of date on the local system.
