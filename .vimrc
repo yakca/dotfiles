@@ -85,7 +85,11 @@ nnoremap <space>y :Unite history/yank<cr>
 nnoremap <space>s :Unite -quick-match buffer<cr>
 
 " gui config
-set guifont=DejaVu\ Sans\ Mono\ 12
+if has("gui_macvim")
+	set guifont=Monaco:h12
+else
+	set guifont=DejaVu\ Sans\ Mono\ 12
+endif
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
