@@ -27,7 +27,7 @@
 	stm = status --untracked=no
 	pullsrb = !git stash save && git pull --rebase && git stash pop && echo 'Success!'
 [user]
-	email = mackay.ka@gmail.com
+	email = kevin@alacrity.io
 	name = Kevin Mackay
 [core]
 	editor = vim
