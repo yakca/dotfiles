@@ -25,6 +25,7 @@ Plugin 'voithos/vim-python-matchit'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'mitsuhiko/vim-python-combined'
+Plugin 'pangloss/vim-javascript'
 
 
 " All of your Plugins must be added before the following line
@@ -135,6 +136,9 @@ let g:syntastic_python_flake8_args='--ignore=E121,E128,E301,E261,E241,E123,E124,
 " ruby
 autocmd FileType ruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 			\ autoindent textwidth=119
+
+" javascript
+autocmd Filetype javascript setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 
 " watch vimrc for changes and reload
 augroup reload_vimrc " {
