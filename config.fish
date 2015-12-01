@@ -2,12 +2,18 @@
 alias b='~/blender-git/build/bin/blender'
 alias g="git"
 alias v="vim"
-alias vu="vim +PluginUpdate +qall"
+alias pu="vim +PluginUpdate +qall"
 alias mkdir="mkdir -pv"
 alias df="df -h"
+
+# vagrant aliases
 alias vs="vagrant ssh"
+alias vu="vagrant up"
 alias vsu="vagrant up; and vagrant ssh"
 alias vh="vagrant halt"
+alias vg="vagrant global-status"
+alias vr="vagrant reload"
+alias vrp="vagrant reload --provision"
 
 # Pacman alias examples
 alias pacupg='sudo pacman -Syu'		# Synchronize with repositories and then upgrade packages that are out of date on the local system.
