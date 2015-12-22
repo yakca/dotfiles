@@ -170,15 +170,15 @@ bar {
 
 ## additions!
 
-bindsym XF86AudioRaiseVolume exec cmus-remote -v +2%
-bindsym XF86AudioLowerVolume exec cmus-remote -v -2%
+# bindsym XF86AudioRaiseVolume exec cmus-remote -v +2%
+# bindsym XF86AudioLowerVolume exec cmus-remote -v -2%
 bindsym XF86AudioPlay exec cmus-remote -u
 bindsym XF86AudioStop exec cmus-remote -s
 bindsym XF86AudioPrev exec cmus-remote -r
 bindsym XF86AudioNext exec cmus-remote -n
 
-#bindsym XF86AudioRaiseVolume exec amixer -q set Master 2%+ unmute
-#bindsym XF86AudioLowerVolume exec amixer -q set Master 2%- unmute
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 2%+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 2%- unmute
 bindsym XF86AudioMute exec amixer -q set Master toggle
 
 # app binds
