@@ -9,7 +9,7 @@ alias df="df -h"
 # vagrant aliases
 alias vs="vagrant ssh"
 alias vu="vagrant up"
-alias vsu="vagrant up; and vagrant ssh"
+alias vus="vagrant up; and vagrant ssh"
 alias vh="vagrant halt"
 alias vg="vagrant global-status"
 alias vr="vagrant reload"
