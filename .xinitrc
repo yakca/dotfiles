@@ -60,4 +60,6 @@ feh --bg-max ~/pictures/DSC_1136.JPG --bg-max ~/pictures/DSC_3872.JPG
 #xterm -geometry 80x50+494+51 &
 #xterm -geometry 80x20+494-0 &
 #exec xterm -geometry 80x66+0+0 -name login
+numlockx &
+
 exec i3
