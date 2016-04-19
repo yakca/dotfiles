@@ -7,6 +7,8 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 
 # merge in defaults and keymaps
 
+setxkbmap gb
+
 if [ -f $sysresources ]; then
 
 
