@@ -1,4 +1,4 @@
-install: install-vim install-fish install-i3 install-qt install-git install-zathura install-tmux install-general
+install: install-vim install-fish install-i3 install-qt install-git install-zathura install-tmux install-general install-emacs
 
 install-vim:
 	mkdir -p ~/.vim/backup
@@ -41,3 +41,7 @@ install-tmux:
 install-general:
 	ln -s `pwd`/xinitrc ~/.xinitrc
 	ln -s `pwd`/Xresources ~/.Xresources
+
+install-emacs:
+	mkdir -p ~/.emacs.d/.
+	ln -s `pwd`/emacs/init.el ~/.emacs.d/init.el
