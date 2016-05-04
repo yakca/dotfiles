@@ -1,4 +1,4 @@
-install: install-vim install-fish install-i3 install-qt install-git intall-zathura install-general
+install: install-vim install-fish install-i3 install-qt install-git install-zathura install-tmux install-general
 
 install-vim:
 	mkdir -p ~/.vim/backup
@@ -10,7 +10,7 @@ install-fish:
 	mkdir -p ~/.config/fish/
 	ln -s `pwd`/config.fish ~/.config/fish/config.fish
 
-install-i3:m
+install-i3:
 	mkdir -p ~/.i3
 	ln -s `pwd`/i3/config ~/.i3/config
 	ln -s `pwd`/i3/i3status.conf ~/.i3status.conf
@@ -28,7 +28,9 @@ install-zathura:
 	mkdir -p ~/.config/zathura
 	ln -s `pwd`/zathura/zathurarc ~/.config/zathura/zathurarc
 
+install-tmux:
+	ln -s `pwd`/tmux.conf ~/.tmux.conf
+
 install-general:
 	ln -s `pwd`/xinitrc ~/.xinitrc
 	ln -s `pwd`/Xresources ~/.Xresources
-	ln -s `pwd`/tmux.conf ~/.tmux.conf
