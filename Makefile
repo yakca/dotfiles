@@ -6,9 +6,16 @@ install-vim:
 	mkdir -p ~/.vim/undo
 	ln -s `pwd`/vimrc ~/.vimrc
 
+install-vundle:
+	mkdir -p ~/.vim/bundle
+	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+	vim +PluginInstall +qall
+	cd ~/.vim/bundle/vimproc.vim && make && cd -
+
 install-fish:
 	mkdir -p ~/.config/fish/
-	ln -s `pwd`/config.fish ~/.config/fish/config.fish
+	rm -f ~/.config/fish/config.fish
+	ln -s `pwd`/fish/config.fish ~/.config/fish/config.fish
 
 install-i3:
 	mkdir -p ~/.i3
