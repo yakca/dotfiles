@@ -8,3 +8,11 @@
 
 (load-theme 'solarized-dark t)
 
+; show column-number in the mode line
+(column-number-mode 1)
+
+; don't show the tool bar
+(tool-bar-mode -1)
+
+; don't show the scroll bar
+(scroll-bar-mode -1)
