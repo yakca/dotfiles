@@ -8,11 +8,15 @@
 
 (load-theme 'solarized-dark t)
 
-; show column-number in the mode line
+;; show column-number in the mode line
 (column-number-mode 1)
 
-; don't show the tool bar
+;; don't show the tool bar
 (tool-bar-mode -1)
 
-; don't show the scroll bar
+;; don't show the scroll bar
 (scroll-bar-mode -1)
+
+;; cpython style
+(setq c-default-style "python"
+      c-basic-offset 4)
