@@ -6,7 +6,8 @@
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
 
-(load-theme 'solarized-dark t)
+;; command as meta
+(setq mac-command-modifier 'meta)
 
 ;; show column-number in the mode line
 (column-number-mode 1)
@@ -21,6 +22,9 @@
 (setq c-default-style "python"
       c-basic-offset 4)
 
+;;  start configuration with packages
+(load-theme 'solarized-dark t)
+
 ;; helm configuration
 (require 'helm)
 (require 'helm-config)
@@ -30,6 +34,7 @@
 ;; cannot change `helm-command-prefix-key' once `helm-config' is loaded.
 (global-set-key (kbd "C-c h") 'helm-command-prefix)
 (global-unset-key (kbd "C-x c"))
+
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
