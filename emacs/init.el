@@ -39,6 +39,7 @@
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "C-x b") 'helm-mini)
+(global-set-key (kbd "C-c h o") 'helm-occur)
 
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
 (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
@@ -52,8 +53,11 @@
       helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
       helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
       helm-ff-file-name-history-use-recentf t
-      helm-M-x-fuzzy-match                  t
+      helm-M-x-fuzzy-match                  t ; fuzzy matching for M-x
       helm-buffers-fuzzy-matching           t
-      helm-recentf-fuzzy-match              t) ; fuzzy matching for M-x
+      helm-recentf-fuzzy-match              t
+      helm-semantic-fuzzy-match             t
+      helm-imenu-fuzzy-match                t
+      helm-locate-fuzzy-match               t)
 
 (helm-mode 1)
