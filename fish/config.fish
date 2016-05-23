@@ -39,7 +39,8 @@ alias pacinsd='sudo pacman -S --asdeps'            # Install given package(s) as
 alias pacmir='sudo pacman -Syy'                    # Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
 
 # start X at login
-if status --is-login
+set os (uname)
+if begin [ $os = "Linux" ]; and status --is-login; end
     if test -z "$DISPLAY" -a $XDG_VTNR -eq 1
         exec startx -- -keeptty
     end
