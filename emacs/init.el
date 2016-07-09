@@ -1,3 +1,5 @@
+;;;; package manager configuration
+
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/"))
@@ -5,6 +7,8 @@
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
+
+;;;; general configuration
 
 ;; command as meta
 (setq mac-command-modifier 'meta)
@@ -18,14 +22,11 @@
 ;; don't show the scroll bar
 (scroll-bar-mode -1)
 
-;; cpython style
-(setq c-default-style "python"
-      c-basic-offset 4)
-
 ;;  start configuration with packages
 (load-theme 'solarized-dark t)
 
-;; helm configuration
+;;;; helm configuration
+
 (require 'helm)
 (require 'helm-config)
 
@@ -60,8 +61,36 @@
       helm-imenu-fuzzy-match                t
       helm-locate-fuzzy-match               t)
 
-;; arch wiki magic to stop slow start up with helm
+;; stop slow start up with helm (arch wiki)
 (setq tramp-ssh-controlmaster-options
       "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
 (require 'tramp)
 (helm-mode 1)
+
+;;;; language configuration
+
+;; cpython style
+(setq c-default-style "python"
+      c-basic-offset 4)
+
+;; javascript style
+(autoload 'js3-mode "js3-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js3-mode))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(js3-auto-indent-p t)         ; it's nice for commas to right themselves.
+ '(js3-enter-indents-newline t) ; don't need to push tab before typing
+ '(js3-indent-on-enter-key t)   ; fix indenting before moving on
+ '(js3-lazy-commas t)
+ '(js3-lazy-operators t)
+ '(js3-indent-level 4))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
