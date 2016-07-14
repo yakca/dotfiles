@@ -10,8 +10,13 @@
 
 ;;;; general configuration
 
-;; command as meta
-(setq mac-command-modifier 'meta)
+;; OS X config
+(when (eq system-type 'darwin)
+  (set-face-attribute 'default nil :family "Consolas")
+  (set-face-attribute 'default nil :height 140)
+
+  (setq mac-command-modifier 'meta)
+)
 
 ;; show column-number in the mode line
 (column-number-mode 1)
