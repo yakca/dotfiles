@@ -1,5 +1,6 @@
 # General aliases
 alias b='~/blender-git/build/bin/blender'
+alias e="emacs -nw"
 alias g="git"
 alias v="vim"
 alias pu="vim +PluginUpdate +qall"
