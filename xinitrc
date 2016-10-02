@@ -52,7 +52,7 @@ compton -CG &
 
 unclutter &
 
-feh --bg-max ~/pictures/DSC_1136.JPG --bg-max ~/pictures/DSC_3872.JPG
+feh --bg-max ~/photos/left.jpg --bg-max ~/photos/right.jpg
 
 #twm &
 #xclock -geometry 50x50-1+1 &
