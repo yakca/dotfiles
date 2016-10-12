@@ -8,7 +8,25 @@
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
 
+;; bootstrap 'use-package'
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+;;;; package install and config
+;; TODO: move all packages here
+
+(use-package js2-mode
+  :ensure t)
+
 ;;;; general configuration
+
+;; backup and autosave files to tmp dir
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+
 
 ;; OS X config
 (when (eq system-type 'darwin)
@@ -77,28 +95,6 @@
 ;; cpython style
 (setq c-default-style "python"
       c-basic-offset 4)
-
-;; javascript style
-(autoload 'js3-mode "js3-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js3-mode))
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(js3-auto-indent-p t)         ; it's nice for commas to right themselves.
- '(js3-enter-indents-newline t) ; don't need to push tab before typing
- '(js3-indent-on-enter-key t)   ; fix indenting before moving on
- '(js3-lazy-commas t)
- '(js3-lazy-operators t)
- '(js3-indent-level 4))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 
 (autoload 'sass-mode "sass-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.scss$" . sass-mode))
