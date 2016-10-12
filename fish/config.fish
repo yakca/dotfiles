@@ -47,4 +47,4 @@ if begin [ $os = "Linux" ]; and status --is-login; end
     end
 end
 
-eval (python -m virtualfish compat_aliases auto_activation global_requirements)
+eval (python3 -m virtualfish compat_aliases auto_activation global_requirements)
