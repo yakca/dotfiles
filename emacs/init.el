@@ -19,6 +19,24 @@
 (use-package js2-mode
   :ensure t)
 
+(use-package json-mode
+  :ensure t)
+
+(use-package web-mode
+  :ensure t)
+
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode)
+  :config
+  (setq-default flycheck-disabled-checkers
+		 (append flycheck-disabled-checkers
+			 '(javascript-jshint))))
+
+(use-package solarized-theme
+  :config (load-theme 'solarized-dark t))
+
+
 ;;;; general configuration
 
 ;; backup and autosave files to tmp dir
@@ -44,9 +62,6 @@
 
 ;; don't show the scroll bar
 (scroll-bar-mode -1)
-
-;;  start configuration with packages
-(load-theme 'solarized-dark t)
 
 ;;;; helm configuration
 
@@ -105,3 +120,19 @@
   "Kill all other buffers."
   (interactive)
   (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (flycheck web-mode json-mode js2-mode use-package solarized-theme helm cmake-mode))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+;;; init.el ends here
