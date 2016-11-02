@@ -1,4 +1,9 @@
-;;;; package manager configuration
+;;; init.el -- yakca's Emacs config
+
+;;; Commentary:
+;; yakca's Emacs config
+
+;;; Code:
 
 (require 'package)
 (add-to-list 'package-archives
@@ -125,6 +130,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(indent-tabs-mode nil)
  '(package-selected-packages
    (quote
     (flycheck web-mode json-mode js2-mode use-package solarized-theme helm cmake-mode))))
