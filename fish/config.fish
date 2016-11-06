@@ -39,6 +39,10 @@ alias pacupd='sudo pacman -Sy; and sudo abs'         # Update and refresh the lo
 alias pacinsd='sudo pacman -S --asdeps'            # Install given package(s) as dependencies
 alias pacmir='sudo pacman -Syy'                    # Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
 
+set -gx LANG en_GB.UTF-8
+set -gx LC_TIME en_GB.UTF-8
+set -gx LC_COLLATE C
+
 # start X at login
 set os (uname)
 if begin [ $os = "Linux" ]; and status --is-login; end
