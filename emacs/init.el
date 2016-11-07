@@ -19,7 +19,6 @@
   (package-install 'use-package))
 
 ;;;; package install and config
-;; TODO: move all packages here
 
 (use-package js2-mode
   :ensure t)
@@ -35,29 +34,61 @@
   :init (global-flycheck-mode)
   :config
   (setq-default flycheck-disabled-checkers
-		 (append flycheck-disabled-checkers
-			 '(javascript-jshint))))
+                (append flycheck-disabled-checkers
+                        '(javascript-jshint))))
 
 (use-package solarized-theme
   :config (load-theme 'solarized-dark t))
 
+;; stop slow start up with helm (arch wiki)
+(use-package tramp
+  :config
+  (setq tramp-ssh-controlmaster-options
+        "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no"))
+
+;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
+;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
+;; cannot change `helm-command-prefix-key' once `helm-config' is loaded.
+
+(use-package helm
+  :init
+  (global-set-key (kbd "C-c h") 'helm-command-prefix)
+  (global-unset-key (kbd "C-x c"))
+  (progn
+    (require 'helm-config)
+    (setq helm-candidate-number-limit 50)
+    (helm-mode))
+  :bind (("C-c m" . helm-mini)
+         ("C-h a" . helm-apropos)
+         ("C-x C-b" . helm-buffers-list)
+         ("M-y" . helm-show-kill-ring)
+         ("M-x" . helm-M-x)
+         ("C-c h o" . helm-occur)
+         ("C-c h s" . helm-swoop)
+         ("C-c h y" . helm-yas-complete)
+         ("C-c h Y" . helm-yas-create-snippet-on-region)
+         ("C-c h b" . my/helm-do-grep-book-notes)
+         ("C-c h SPC" . helm-all-mark-rings)
+         ("C-x C-f" . helm-find-files))
+  :config
+  (setq-default helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
+                helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
+                helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
+                helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
+                helm-ff-file-name-history-use-recentf t
+                helm-M-x-fuzzy-match                  t ; fuzzy matching for M-x
+                helm-buffers-fuzzy-matching           t
+                helm-recentf-fuzzy-match              t
+                helm-semantic-fuzzy-match             t
+                helm-imenu-fuzzy-match                t
+                helm-locate-fuzzy-match               t)
+  (when (executable-find "curl")
+    (setq-default helm-google-suggest-use-curl-p t))
+  (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
+  (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
+  (define-key helm-map (kbd "C-z")  'helm-select-action)) ; list actions using C-z)
 
 ;;;; general configuration
-
-;; backup and autosave files to tmp dir
-(setq backup-directory-alist
-      `((".*" . ,temporary-file-directory)))
-(setq auto-save-file-name-transforms
-      `((".*" ,temporary-file-directory t)))
-
-
-;; OS X config
-(when (eq system-type 'darwin)
-  (set-face-attribute 'default nil :family "Consolas")
-  (set-face-attribute 'default nil :height 140)
-
-  (setq mac-command-modifier 'meta)
-)
 
 ;; show column-number in the mode line
 (column-number-mode 1)
@@ -68,47 +99,19 @@
 ;; don't show the scroll bar
 (scroll-bar-mode -1)
 
-;;;; helm configuration
+;; backup and autosave files to tmp dir
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
 
-(require 'helm)
-(require 'helm-config)
+;; OS X config
+(when (eq system-type 'darwin)
+  (set-face-attribute 'default nil :family "Consolas")
+  (set-face-attribute 'default nil :height 140)
 
-;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
-;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
-;; cannot change `helm-command-prefix-key' once `helm-config' is loaded.
-(global-set-key (kbd "C-c h") 'helm-command-prefix)
-(global-unset-key (kbd "C-x c"))
-
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
-(global-set-key (kbd "M-y") 'helm-show-kill-ring)
-(global-set-key (kbd "C-x C-b") 'helm-mini)
-(global-set-key (kbd "C-c h o") 'helm-occur)
-
-(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
-(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
-(define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
-
-(when (executable-find "curl")
-  (setq helm-google-suggest-use-curl-p t))
-
-(setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
-      helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
-      helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
-      helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
-      helm-ff-file-name-history-use-recentf t
-      helm-M-x-fuzzy-match                  t ; fuzzy matching for M-x
-      helm-buffers-fuzzy-matching           t
-      helm-recentf-fuzzy-match              t
-      helm-semantic-fuzzy-match             t
-      helm-imenu-fuzzy-match                t
-      helm-locate-fuzzy-match               t)
-
-;; stop slow start up with helm (arch wiki)
-(setq tramp-ssh-controlmaster-options
-      "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
-(require 'tramp)
-(helm-mode 1)
+  (setq mac-command-modifier 'meta)
+  )
 
 ;;;; language configuration
 
