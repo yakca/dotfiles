@@ -38,11 +38,12 @@
                         '(javascript-jshint))))
 
 (use-package solarized-theme
+  :ensure t
   :config (load-theme 'solarized-dark t))
 
 ;; stop slow start up with helm (arch wiki)
 (use-package tramp
-  :config
+  :init
   (setq tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no"))
 
@@ -51,6 +52,7 @@
 ;; cannot change `helm-command-prefix-key' once `helm-config' is loaded.
 
 (use-package helm
+  :ensure t
   :init
   (global-set-key (kbd "C-c h") 'helm-command-prefix)
   (global-unset-key (kbd "C-x c"))
@@ -64,10 +66,6 @@
          ("M-y" . helm-show-kill-ring)
          ("M-x" . helm-M-x)
          ("C-c h o" . helm-occur)
-         ("C-c h s" . helm-swoop)
-         ("C-c h y" . helm-yas-complete)
-         ("C-c h Y" . helm-yas-create-snippet-on-region)
-         ("C-c h b" . my/helm-do-grep-book-notes)
          ("C-c h SPC" . helm-all-mark-rings)
          ("C-x C-f" . helm-find-files))
   :config
