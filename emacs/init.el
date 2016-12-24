@@ -31,7 +31,7 @@
 
 (use-package flycheck
   :ensure t
-  :init (global-flycheck-mode)
+  ;; :init (global-flycheck-mode)
   :config
   (setq-default flycheck-disabled-checkers
                 (append flycheck-disabled-checkers
@@ -41,10 +41,18 @@
   :ensure t
   :config (load-theme 'solarized-dark t))
 
+(use-package ace-window
+  :ensure t
+  :init
+  (global-set-key (kbd "M-p") 'ace-window)
+  :config
+  (setq-default aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)
+                aw-dispatch-always t))
+
 ;; stop slow start up with helm (arch wiki)
 (use-package tramp
   :init
-  (setq tramp-ssh-controlmaster-options
+  (setq-default tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no"))
 
 ;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
@@ -79,12 +87,46 @@
                 helm-recentf-fuzzy-match              t
                 helm-semantic-fuzzy-match             t
                 helm-imenu-fuzzy-match                t
-                helm-locate-fuzzy-match               t)
+                helm-locate-fuzzy-match               t
+                helm-gtags-prefix-key                 "\C-cg")
   (when (executable-find "curl")
     (setq-default helm-google-suggest-use-curl-p t))
   (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
   (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
   (define-key helm-map (kbd "C-z")  'helm-select-action)) ; list actions using C-z)
+
+
+(use-package helm-gtags
+  :init
+  (progn
+    (setq-default helm-gtags-ignore-case t
+                  helm-gtags-auto-update t
+                  helm-gtags-use-input-at-cursor t
+                  helm-gtags-pulse-at-cursor t
+                  helm-gtags-prefix-key "\C-cg"
+                  helm-gtags-suggested-key-mapping t)
+
+    ;; Enable helm-gtags-mode in Dired so you can jump to any tag
+    ;; when navigate project tree with Dired
+    (add-hook 'dired-mode-hook 'helm-gtags-mode)
+
+    ;; Enable helm-gtags-mode in Eshell for the same reason as above
+    (add-hook 'eshell-mode-hook 'helm-gtags-mode)
+
+    ;; Enable helm-gtags-mode in languages that GNU Global supports
+    (add-hook 'c-mode-hook 'helm-gtags-mode)
+    (add-hook 'c++-mode-hook 'helm-gtags-mode)
+    (add-hook 'java-mode-hook 'helm-gtags-mode)
+    (add-hook 'asm-mode-hook 'helm-gtags-mode)
+
+    ;; key bindings
+    (with-eval-after-load 'helm-gtags
+      (define-key helm-gtags-mode-map (kbd "C-c g a") 'helm-gtags-tags-in-this-function)
+      (define-key helm-gtags-mode-map (kbd "C-j") 'helm-gtags-select)
+      (define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
+      (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
+      (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
+      (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history))))
 
 ;;;; general configuration
 
@@ -117,6 +159,10 @@
 (setq c-default-style "python"
       c-basic-offset 4)
 
+;; gdb
+(setq gdb-many-windows t
+      gdb-show-main t)
+
 (autoload 'sass-mode "sass-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.scss$" . sass-mode))
 
@@ -134,7 +180,7 @@
  '(indent-tabs-mode nil)
  '(package-selected-packages
    (quote
-    (flycheck web-mode json-mode js2-mode use-package solarized-theme helm cmake-mode))))
+    (ace-window helm-gtags flycheck web-mode json-mode js2-mode use-package solarized-theme helm cmake-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
