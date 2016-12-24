@@ -139,6 +139,11 @@
 ;; don't show the scroll bar
 (scroll-bar-mode -1)
 
+;; enable windmove
+
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
+
 ;; backup and autosave files to tmp dir
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
