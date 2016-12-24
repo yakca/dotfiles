@@ -47,7 +47,7 @@ set -gx LC_COLLATE C
 set os (uname)
 if begin [ $os = "Linux" ]; and status --is-login; end
     if test -z "$DISPLAY" -a $XDG_VTNR -eq 1
-        exec startx -- -keeptty
+        exec startx
     end
 end
 
