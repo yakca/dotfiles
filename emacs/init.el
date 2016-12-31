@@ -130,9 +130,13 @@
 
 ;;;; general configuration
 
+;; show trailing whitespaces
 (add-hook 'prog-mode-hook
           (lambda () (interactive)
             (setq show-trailing-whitespace 1)))
+
+;; activate whitespace-mode to view all whitespace characters
+(global-set-key (kbd "C-c w") 'whitespace-mode)
 
 ;; show column-number in the mode line
 (column-number-mode 1)
@@ -144,7 +148,6 @@
 (scroll-bar-mode -1)
 
 ;; enable windmove
-
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
 
