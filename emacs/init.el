@@ -49,10 +49,16 @@
 (use-package ace-window
   :ensure t
   :init
-  (global-set-key (kbd "M-p") 'ace-window)
+  (global-set-key (kbd "M-[") 'ace-window)
   :config
   (setq-default aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)
                 aw-dispatch-always t))
+
+(use-package projectile
+  :ensure t
+  :init
+  (projectile-global-mode)
+  (setq projectile-enable-caching t))
 
 ;; stop slow start up with helm (arch wiki)
 (use-package tramp
@@ -73,6 +79,14 @@
     (require 'helm-config)
     (setq helm-candidate-number-limit 50)
     (helm-mode))
+
+  (use-package helm-projectile
+    :ensure t
+    :init
+    (helm-projectile-on)
+    (setq projectile-completion-system 'helm)
+    (setq projectile-indexing-method 'alien) ;; external indexing, mainly for windows
+    (setq projectile-switch-project-action 'helm-projectile))
   :bind (("C-c m" . helm-mini)
          ("C-h a" . helm-apropos)
          ("C-x C-b" . helm-buffers-list)
@@ -197,7 +211,10 @@
  '(indent-tabs-mode nil)
  '(package-selected-packages
    (quote
-    (ace-window helm-gtags flycheck web-mode json-mode js2-mode use-package solarized-theme helm cmake-mode))))
+    (projectile ace-window helm-gtags flycheck web-mode json-mode js2-mode use-package solarized-theme helm cmake-mode)))
+ '(safe-local-variable-values
+   (quote
+    ((projectile-project-compilation-cmd . "make -C build -j16")))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
