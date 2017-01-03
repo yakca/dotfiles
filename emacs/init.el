@@ -20,6 +20,11 @@
 
 ;;;; package install and config
 
+(use-package free-keys
+  :ensure t
+  :init
+  (global-set-key (kbd "C-h C-k") 'free-keys))
+
 (use-package js2-mode
   :ensure t)
 
@@ -162,8 +167,7 @@
   (set-face-attribute 'default nil :family "Consolas")
   (set-face-attribute 'default nil :height 140)
 
-  (setq mac-command-modifier 'meta)
-  )
+  (setq mac-command-modifier 'meta))
 
 ;;;; language configuration
 
@@ -184,6 +188,7 @@
   "Kill all other buffers."
   (interactive)
   (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
