@@ -114,8 +114,8 @@
   (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
   (define-key helm-map (kbd "C-z")  'helm-select-action)) ; list actions using C-z)
 
-
 (use-package helm-gtags
+  :ensure t
   :init
   (progn
     (setq-default helm-gtags-ignore-case t
@@ -212,6 +212,7 @@
  '(package-selected-packages
    (quote
     (projectile ace-window helm-gtags flycheck web-mode json-mode js2-mode use-package solarized-theme helm cmake-mode)))
+ '(projectile-globally-ignored-files (quote ("TAGS" "GTAGS" "GRTAGS" "GPATH")))
  '(safe-local-variable-values
    (quote
     ((projectile-project-compilation-cmd . "make -C build -j16")))))
