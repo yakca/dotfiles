@@ -150,6 +150,11 @@
       (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
       (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history))))
 
+(use-package magit
+  :ensure t
+  :init
+  (global-set-key (kbd "C-x g") 'magit-status))
+
 ;;;; general configuration
 
 ;; show trailing whitespaces
@@ -216,7 +221,7 @@
  '(indent-tabs-mode nil)
  '(package-selected-packages
    (quote
-    (helm-projectile free-keys projectile ace-window helm-gtags flycheck web-mode json-mode js2-mode use-package solarized-theme helm cmake-mode)))
+    (scss-mode magit helm-projectile free-keys projectile ace-window helm-gtags flycheck web-mode json-mode js2-mode use-package solarized-theme helm cmake-mode)))
  '(projectile-globally-ignored-files (quote ("TAGS" "GTAGS" "GRTAGS" "GPATH")))
  '(safe-local-variable-values
    (quote
