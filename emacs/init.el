@@ -152,8 +152,8 @@
 
 (use-package magit
   :ensure t
-  :init
-  (global-set-key (kbd "C-x g") 'magit-status))
+  :bind (("C-x g" . magit-status)
+         ("C-x M-g" . magit-dispatch-popup)))
 
 ;;;; general configuration
 
