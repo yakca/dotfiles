@@ -34,6 +34,9 @@
 (use-package web-mode
   :ensure t)
 
+(use-package scss-mode
+  :ensure t)
+
 (use-package flycheck
   :ensure t
   ;; :init (global-flycheck-mode)
@@ -166,6 +169,8 @@
 ;; don't show the scroll bar
 (scroll-bar-mode -1)
 
+(add-hook 'before-save-hook 'whitespace-cleanup)
+
 ;; enable windmove
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
@@ -193,8 +198,8 @@
 (setq gdb-many-windows t
       gdb-show-main t)
 
-(autoload 'sass-mode "sass-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.scss$" . sass-mode))
+;; css
+(setq css-indent-offset 2)
 
 ;;;; custom functions
 
@@ -211,7 +216,7 @@
  '(indent-tabs-mode nil)
  '(package-selected-packages
    (quote
-    (projectile ace-window helm-gtags flycheck web-mode json-mode js2-mode use-package solarized-theme helm cmake-mode)))
+    (helm-projectile free-keys projectile ace-window helm-gtags flycheck web-mode json-mode js2-mode use-package solarized-theme helm cmake-mode)))
  '(projectile-globally-ignored-files (quote ("TAGS" "GTAGS" "GRTAGS" "GPATH")))
  '(safe-local-variable-values
    (quote
