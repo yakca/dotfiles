@@ -18,6 +18,10 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+;; add /usr/local/bin to path
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+    (setq exec-path (append exec-path '("/usr/local/bin")))
+
 ;;;; package install and config
 
 (use-package free-keys
@@ -155,6 +159,21 @@
   :bind (("C-x g" . magit-status)
          ("C-x M-g" . magit-dispatch-popup)))
 
+(use-package auto-complete
+  :ensure t
+  :init
+  (ac-config-default))
+
+(use-package tern
+  :ensure t
+  :init
+  (add-hook 'js-mode-hook (lambda() (tern-mode t)))
+  (progn
+    (use-package tern-auto-complete
+      :ensure t
+      :init
+      (tern-ac-setup))))
+
 ;;;; general configuration
 
 ;; show trailing whitespaces
@@ -221,7 +240,7 @@
  '(indent-tabs-mode nil)
  '(package-selected-packages
    (quote
-    (scss-mode magit helm-projectile free-keys projectile ace-window helm-gtags flycheck web-mode json-mode js2-mode use-package solarized-theme helm cmake-mode)))
+    (tern-auto-complete tern scss-mode magit helm-projectile free-keys projectile ace-window helm-gtags flycheck web-mode json-mode js2-mode use-package solarized-theme helm cmake-mode)))
  '(projectile-globally-ignored-files (quote ("TAGS" "GTAGS" "GRTAGS" "GPATH")))
  '(safe-local-variable-values
    (quote
