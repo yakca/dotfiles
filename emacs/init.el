@@ -184,6 +184,9 @@
 ;; activate whitespace-mode to view all whitespace characters
 (global-set-key (kbd "C-c w") 'whitespace-mode)
 
+;; refresh buffers on change
+(global-auto-revert-mode t)
+
 ;; show column-number in the mode line
 (column-number-mode 1)
 
