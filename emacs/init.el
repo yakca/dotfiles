@@ -51,7 +51,8 @@
 
 (use-package solarized-theme
   :ensure t
-  :config (load-theme 'solarized-dark t))
+  :config
+  (load-theme 'solarized-dark t))
 
 (use-package ace-window
   :ensure t
@@ -65,7 +66,12 @@
   :ensure t
   :init
   (projectile-global-mode)
-  (setq projectile-enable-caching t))
+  (setq projectile-enable-caching t)
+  :bind
+  (("C-c d" . projectile-find-dir)
+   ("C-c f" . projectile-find-file)
+   ("C-c s" . projectile-switch-project)
+   ("C-c g" . projectile-grep)))
 
 ;; stop slow start up with helm (arch wiki)
 (use-package tramp
@@ -86,7 +92,6 @@
     (require 'helm-config)
     (setq helm-candidate-number-limit 50)
     (helm-mode))
-
   (use-package helm-projectile
     :ensure t
     :init
@@ -94,14 +99,16 @@
     (setq projectile-completion-system 'helm)
     (setq projectile-indexing-method 'alien) ;; external indexing, mainly for windows
     (setq projectile-switch-project-action 'helm-projectile))
-  :bind (("C-c m" . helm-mini)
-         ("C-h a" . helm-apropos)
-         ("C-x C-b" . helm-buffers-list)
-         ("M-y" . helm-show-kill-ring)
-         ("M-x" . helm-M-x)
-         ("C-c h o" . helm-occur)
-         ("C-c h SPC" . helm-all-mark-rings)
-         ("C-x C-f" . helm-find-files))
+
+  :bind
+  (("C-c m" . helm-mini)
+   ("C-h a" . helm-apropos)
+   ("C-x C-b" . helm-buffers-list)
+   ("M-y" . helm-show-kill-ring)
+   ("M-x" . helm-M-x)
+   ("C-c h o" . helm-occur)
+   ("C-c h SPC" . helm-all-mark-rings)
+   ("C-x C-f" . helm-find-files))
   :config
   (setq-default helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
                 helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
