@@ -22,6 +22,7 @@
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
     (setq exec-path (append exec-path '("/usr/local/bin")))
 
+
 ;;;; package install and config
 
 (use-package free-keys
@@ -51,6 +52,9 @@
 
 (use-package solarized-theme
   :ensure t
+  :init
+  (setq solarized-use-variable-pitch nil
+        solarized-scale-org-headlines nil)
   :config
   (load-theme 'solarized-dark t))
 
@@ -77,7 +81,7 @@
 (use-package tramp
   :init
   (setq-default tramp-ssh-controlmaster-options
-        "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no"))
+                "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no"))
 
 ;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
 ;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
@@ -181,6 +185,7 @@
       :init
       (tern-ac-setup))))
 
+
 ;;;; general configuration
 
 ;; show trailing whitespaces
@@ -203,11 +208,15 @@
 ;; don't show the scroll bar
 (scroll-bar-mode -1)
 
+;; Font size
+(define-key global-map (kbd "C-+") 'text-scale-increase)
+(define-key global-map (kbd "C--") 'text-scale-decrease)
+
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
 ;; enable windmove
-(when (fboundp 'windmove-default-keybindings)
-  (windmove-default-keybindings))
+;; (when (fboundp 'windmove-default-keybindings)
+;;  (windmove-default-keybindings))
 
 ;; backup and autosave files to tmp dir
 (setq backup-directory-alist
@@ -234,6 +243,7 @@
 
 ;; css
 (setq css-indent-offset 2)
+
 
 ;;;; custom functions
 
