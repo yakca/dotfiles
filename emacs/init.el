@@ -22,6 +22,15 @@
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
     (setq exec-path (append exec-path '("/usr/local/bin")))
 
+;; org-mode
+(setq org-directory "~/Dropbox/org")
+(setq org-agenda-restore-windows-after-quit t)
+(setq org-agenda-files
+      (quote ("~/Dropbox/org/agendas/bbc.org"
+              "~/Dropbox/org/agendas/personal.org")))
+
+(global-set-key (kbd "C-c a") 'org-agenda)
+
 
 ;;;; package install and config
 
@@ -213,6 +222,9 @@
 (define-key global-map (kbd "C--") 'text-scale-decrease)
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
+
+;; show matching parenthesis
+(show-paren-mode t)
 
 ;; enable windmove
 ;; (when (fboundp 'windmove-default-keybindings)
