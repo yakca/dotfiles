@@ -26,8 +26,7 @@
 (setq org-directory "~/Dropbox/org")
 (setq org-agenda-restore-windows-after-quit t)
 (setq org-agenda-files
-      (quote ("~/Dropbox/org/agendas/bbc.org"
-              "~/Dropbox/org/agendas/personal.org")))
+      (quote ("~/Dropbox/org/agendas")))
 
 (global-set-key (kbd "C-c a") 'org-agenda)
 
