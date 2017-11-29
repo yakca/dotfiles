@@ -242,6 +242,9 @@
 
   (setq mac-command-modifier 'meta))
 
+;; autoscroll tests and compilation windows
+(setq compilation-scroll-output 'first-error)
+
 ;;;; language configuration
 
 ;; cpython style
@@ -262,6 +265,8 @@
   "Kill all other buffers."
   (interactive)
   (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
+
+;;;; custom variables
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
