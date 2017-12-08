@@ -216,7 +216,8 @@
 ;; don't show the scroll bar
 (scroll-bar-mode -1)
 
-;; Font size
+;; font size
+(set-frame-font "DejavuSansMono-12")
 (define-key global-map (kbd "C-+") 'text-scale-increase)
 (define-key global-map (kbd "C--") 'text-scale-decrease)
 

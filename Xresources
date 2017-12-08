@@ -4,7 +4,15 @@ Xft.rgba: rgb
 Xft.autohint: false
 Xft.hinting: true
 Xft.lcdfilter: lcddefault
-Xft.hintstyle: hintfull
+Xft.hintstyle: hintslight
+
+! UI elements
+Emacs.menuBar: 1
+Emacs.toolBar: 0
+Emacs.verticalScrollBars: off
+! Font settings
+Emacs.FontBackend: xft,x
+Emacs.font: DejavuSansMono:size=12
 
 ! Solarized color scheme for the X Window System
 !
