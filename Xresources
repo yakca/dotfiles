@@ -74,7 +74,7 @@ URxvt*color15: S_base3
 
 URxvt*font: xft:monospace:size=12
 URxvt*boldFont: xft:monospace:bold:size=12
-URxvt*letterSpace: -1
+URxvt*letterSpace: 0
 
 ! do not scroll with output
 URxvt*scrollTtyOutput: false
