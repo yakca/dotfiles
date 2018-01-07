@@ -43,12 +43,4 @@ set -gx LANG en_GB.UTF-8
 set -gx LC_TIME en_GB.UTF-8
 set -gx LC_COLLATE C
 
-# start X at login
-set os (uname)
-if begin [ $os = "Linux" ]; and status --is-login; end
-    if test -z "$DISPLAY" -a $XDG_VTNR -eq 1
-        exec startx
-    end
-end
-
-eval (python3 -m virtualfish compat_aliases auto_activation global_requirements)
+# eval (python3 -m virtualfish compat_aliases auto_activation global_requirements)
