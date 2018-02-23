@@ -44,6 +44,9 @@
 (use-package json-mode
   :ensure t)
 
+(use-package rjsx-mode
+  :ensure t)
+
 (use-package web-mode
   :ensure t)
 
@@ -286,7 +289,7 @@
  '(indent-tabs-mode nil)
  '(package-selected-packages
    (quote
-    (markdown-mode tern-auto-complete tern scss-mode magit helm-projectile free-keys projectile ace-window helm-gtags flycheck web-mode json-mode js2-mode use-package solarized-theme helm cmake-mode)))
+    (rjsx-mode markdown-mode tern-auto-complete tern scss-mode magit helm-projectile free-keys projectile ace-window helm-gtags flycheck web-mode json-mode js2-mode use-package solarized-theme helm cmake-mode)))
  '(projectile-globally-ignored-files (quote ("TAGS" "GTAGS" "GRTAGS" "GPATH")))
  '(safe-local-variable-values
    (quote
