@@ -53,6 +53,9 @@
 (use-package scss-mode
   :ensure t)
 
+(use-package rust-mode
+  :ensure t)
+
 (use-package flycheck
   :ensure t
   ;; :init (global-flycheck-mode)
@@ -289,7 +292,7 @@
  '(indent-tabs-mode nil)
  '(package-selected-packages
    (quote
-    (rjsx-mode markdown-mode tern-auto-complete tern scss-mode magit helm-projectile free-keys projectile ace-window helm-gtags flycheck web-mode json-mode js2-mode use-package solarized-theme helm cmake-mode)))
+    (rust-mode rjsx-mode markdown-mode tern-auto-complete tern scss-mode magit helm-projectile free-keys projectile ace-window helm-gtags flycheck web-mode json-mode js2-mode use-package solarized-theme helm cmake-mode)))
  '(projectile-globally-ignored-files (quote ("TAGS" "GTAGS" "GRTAGS" "GPATH")))
  '(safe-local-variable-values
    (quote
