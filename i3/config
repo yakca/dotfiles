@@ -130,12 +130,12 @@ bindsym $mod+Shift+9 move container to workspace $tag9
 bindsym $mod+Shift+0 move container to workspace $tag0
 
 # attach workspace to display
-workspace $tag1 output DP-4
-workspace $tag2 output DP-4
-workspace $tag3 output DP-4
-workspace $tag4 output DP-4
-workspace $tag5 output DP-4
-workspace $tag6 output DP-4
+workspace $tag1 output DP-0
+workspace $tag2 output DP-0
+workspace $tag3 output DP-0
+workspace $tag4 output DP-0
+workspace $tag5 output DP-0
+workspace $tag6 output DP-0
 workspace $tag7 output DVI-D-0
 workspace $tag8 output DVI-D-0
 workspace $tag9 output DVI-D-0
