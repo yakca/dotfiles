@@ -1,4 +1,4 @@
-install: install-vim install-fish install-i3 install-qt install-git install-zathura install-tmux install-general install-emacs
+install: install-fish install-i3 install-qt install-git install-zathura install-tmux install-general install-emacs
 
 install-vim:
 	mkdir -p ~/.vim/backup
