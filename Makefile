@@ -1,4 +1,8 @@
-install: install-fish install-i3 install-qt install-git install-zathura install-tmux install-general install-emacs
+install: install-bash install-fish install-i3 install-qt install-git install-zathura install-tmux install-general install-emacs
+
+install-bash:
+	ln -s `pwd`/bash/bash_profile ~/.bash_profile
+	ln -s `pwd`/bash/bashrc ~/.bashrc
 
 install-vim:
 	mkdir -p ~/.vim/backup
