@@ -1,4 +1,4 @@
-install: install-bash install-fish install-i3 install-qt install-git install-zathura install-tmux install-general install-emacs
+install: install-bash install-fish install-i3 install-qt install-git install-zathura install-tmux install-general install-emacs install-cmus
 
 install-bash:
 	ln -s `pwd`/bash/bash_profile ~/.bash_profile
@@ -43,3 +43,7 @@ install-general:
 install-emacs:
 	mkdir -p ~/.emacs.d/.
 	ln -s `pwd`/emacs/init.el ~/.emacs.d/init.el
+
+install-cmus:
+	mkdir -p ~/.config/cmus/
+	ln -s `pwd`/cmus/rc ~/.config/cmus/rc
