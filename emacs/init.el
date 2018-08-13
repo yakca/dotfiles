@@ -39,7 +39,24 @@
   (global-set-key (kbd "C-h C-k") 'free-keys))
 
 (use-package js2-mode
-  :ensure t)
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+  (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
+  (use-package xref-js2
+    :ensure t
+    :init
+    (define-key js-mode-map (kbd "M-.") nil) ;; unbind conflict
+    :config
+    (add-hook 'js2-mode-hook
+              (lambda () (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t))))
+  (use-package js2-refactor
+    :ensure t
+    :init
+    (define-key js2-mode-map (kbd "C-k") #'js2r-kill)
+    :config
+    (add-hook 'js2-mode-hook #'js2-refactor-mode)
+    (js2r-add-keybindings-with-prefix "C-c r")))
 
 (use-package json-mode
   :ensure t)
@@ -97,14 +114,10 @@
   (setq-default tramp-ssh-controlmaster-options
                 "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no"))
 
-;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
-;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
-;; cannot change `helm-command-prefix-key' once `helm-config' is loaded.
-
 (use-package helm
   :ensure t
   :init
-  (global-set-key (kbd "C-c h") 'helm-command-prefix)
+  (global-set-key (kbd "C-c h") 'helm-command-prefix) ;; must be done before config
   (global-unset-key (kbd "C-x c"))
   (progn
     (require 'helm-config)
@@ -292,7 +305,7 @@
  '(indent-tabs-mode nil)
  '(package-selected-packages
    (quote
-    (rust-mode rjsx-mode markdown-mode tern-auto-complete tern scss-mode magit helm-projectile free-keys projectile ace-window helm-gtags flycheck web-mode json-mode js2-mode use-package solarized-theme helm cmake-mode)))
+    (js2-refactor xref-js2 rust-mode rjsx-mode markdown-mode tern-auto-complete tern scss-mode magit helm-projectile free-keys projectile ace-window helm-gtags flycheck web-mode json-mode js2-mode use-package solarized-theme helm cmake-mode)))
  '(projectile-globally-ignored-files (quote ("TAGS" "GTAGS" "GRTAGS" "GPATH")))
  '(safe-local-variable-values
    (quote
