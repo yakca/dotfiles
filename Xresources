@@ -12,7 +12,7 @@ Emacs.toolBar: 0
 Emacs.verticalScrollBars: off
 ! Font settings
 Emacs.FontBackend: xft,x
-Emacs.font: DejavuSansMono:size=12
+Emacs.font: Monospace-12
 
 ! Solarized color scheme for the X Window System
 !

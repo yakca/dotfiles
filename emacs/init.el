@@ -236,7 +236,7 @@
 (scroll-bar-mode -1)
 
 ;; font size
-(set-frame-font "Monospace-12")
+(set-default-font "Monospace-12")
 (define-key global-map (kbd "C-+") 'text-scale-increase)
 (define-key global-map (kbd "C--") 'text-scale-decrease)
 

@@ -79,7 +79,7 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+t layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -196,7 +196,7 @@ bindsym XF86AudioMute exec amixer -q set Master toggle
 # app binds
 bindsym $mod+c exec chromium
 bindsym $mod+m exec firefox
-bindsym $mod+g exec gvim
+bindsym $mod+e exec emacsclient -nc
 
 # status bar toggle for systemctl
 set $Locker i3lock && sleep 1
