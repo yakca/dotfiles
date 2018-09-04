@@ -56,7 +56,11 @@
     (define-key js2-mode-map (kbd "C-k") #'js2r-kill)
     :config
     (add-hook 'js2-mode-hook #'js2-refactor-mode)
-    (js2r-add-keybindings-with-prefix "C-c r")))
+    (js2r-add-keybindings-with-prefix "C-c r"))
+  (use-package pug-mode
+    :ensure t
+    :config
+    (setq-default pug-tab-width 2)))
 
 (use-package json-mode
   :ensure t)
@@ -305,7 +309,7 @@
  '(indent-tabs-mode nil)
  '(package-selected-packages
    (quote
-    (js2-refactor xref-js2 rust-mode rjsx-mode markdown-mode tern-auto-complete tern scss-mode magit helm-projectile free-keys projectile ace-window helm-gtags flycheck web-mode json-mode js2-mode use-package solarized-theme helm cmake-mode)))
+    (pug-mode js2-refactor xref-js2 rust-mode rjsx-mode markdown-mode tern-auto-complete tern scss-mode magit helm-projectile free-keys projectile ace-window helm-gtags flycheck web-mode json-mode js2-mode use-package solarized-theme helm cmake-mode)))
  '(projectile-globally-ignored-files (quote ("TAGS" "GTAGS" "GRTAGS" "GPATH")))
  '(safe-local-variable-values
    (quote
