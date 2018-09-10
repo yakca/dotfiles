@@ -25,13 +25,14 @@
         st = status
         sra = svn rebase --all
         stm = status --untracked=no
+        sub = submodule update --init --recursive
         pullsrb = !git stash save && git pull --rebase && git stash pop && echo 'Success!'
         merge-log = "!f() { git log --stat \"$1^..$1\"; }; f"
 [user]
         email = kevin@alacrity.io
         name = Kevin Mackay
 [core]
-        editor = vim
+        editor = emacsclient -nc
         excludesfile = ~/.gitignore
 [push]
         default = matching
