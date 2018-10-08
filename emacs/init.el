@@ -63,7 +63,9 @@
     (setq-default pug-tab-width 2)))
 
 (use-package json-mode
-  :ensure t)
+  :ensure t
+  :config
+  (add-hook 'json-mode-hook #'flycheck-mode))
 
 (use-package rjsx-mode
   :ensure t)
