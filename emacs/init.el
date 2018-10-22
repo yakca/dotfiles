@@ -87,13 +87,10 @@
                 (append flycheck-disabled-checkers
                         '(javascript-jshint))))
 
-(use-package solarized-theme
+(use-package base16-theme
   :ensure t
-  :init
-  (setq solarized-use-variable-pitch nil
-        solarized-scale-org-headlines nil)
   :config
-  (load-theme 'solarized-dark t))
+  (load-theme 'base16-default-dark t))
 
 (use-package ace-window
   :ensure t
