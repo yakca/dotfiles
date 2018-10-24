@@ -1,4 +1,4 @@
-install: install-bash install-fish install-i3 install-qt install-git install-zathura install-tmux install-general install-emacs install-cmus
+install: install-bash install-fish install-i3 install-git install-zathura install-tmux install-general install-emacs install-cmus
 
 install-bash:
 	ln -s `pwd`/bash/bash_profile ~/.bash_profile
@@ -20,10 +20,6 @@ install-i3:
 	ln -s `pwd`/i3/config ~/.i3/config
 	ln -s `pwd`/i3/i3status.conf ~/.i3status.conf
 	ln -s `pwd`/compton.conf ~/.compton.conf
-
-install-qt:
-	mkdir -p ~/.config/QtProject/qtcreator/styles
-	ln -s `pwd`/qt/solarized-dark.xml ~/.config/QtProject/qtcreator/styles/solarized-dark.xml
 
 install-git:
 	ln -s `pwd`/.gitconfig ~/.gitconfig
