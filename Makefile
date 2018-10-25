@@ -43,3 +43,7 @@ install-emacs:
 install-cmus:
 	mkdir -p ~/.config/cmus/
 	ln -s `pwd`/cmus/rc ~/.config/cmus/rc
+
+install-zsh:
+	ln -s `pwd`/zsh/zshrc ~/.zshrc
+	ln -s `pwd`/zsh/zprofile ~/.zprofile
