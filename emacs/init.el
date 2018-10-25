@@ -87,10 +87,10 @@
                 (append flycheck-disabled-checkers
                         '(javascript-jshint))))
 
-(use-package base16-theme
+(use-package material-theme
   :ensure t
   :config
-  (load-theme 'base16-default-dark t))
+  (load-theme 'material t))
 
 (use-package ace-window
   :ensure t
@@ -260,9 +260,9 @@
 
 ;; OS X config
 (when (eq system-type 'darwin)
-  (set-face-attribute 'default nil :family "Consolas")
+  (set-face-attribute 'default nil :family "Menlo")
   (set-face-attribute 'default nil :height 140)
-
+  (setq-default line-spacing 6)
   (setq mac-command-modifier 'meta))
 
 ;; autoscroll tests and compilation windows
@@ -308,7 +308,7 @@
  '(indent-tabs-mode nil)
  '(package-selected-packages
    (quote
-    (pug-mode js2-refactor xref-js2 rust-mode rjsx-mode markdown-mode tern-auto-complete tern scss-mode magit helm-projectile free-keys projectile ace-window helm-gtags flycheck web-mode json-mode js2-mode use-package solarized-theme helm cmake-mode)))
+    (material-theme pug-mode js2-refactor xref-js2 rust-mode rjsx-mode markdown-mode tern-auto-complete tern scss-mode magit helm-projectile free-keys projectile ace-window helm-gtags flycheck web-mode json-mode js2-mode use-package helm)))
  '(projectile-globally-ignored-files (quote ("TAGS" "GTAGS" "GRTAGS" "GPATH")))
  '(safe-local-variable-values
    (quote
