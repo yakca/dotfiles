@@ -30,7 +30,6 @@
 
 (global-set-key (kbd "C-c a") 'org-agenda)
 
-
 ;;;; package install and config
 
 (use-package free-keys
@@ -248,6 +247,10 @@
 ;; show matching parenthesis
 (show-paren-mode t)
 
+;; bind commenting/uncommenting of region
+(global-set-key (kbd "C-,") 'comment-region)
+(global-set-key (kbd "C-.") 'uncomment-region)
+
 ;; enable windmove
 ;; (when (fboundp 'windmove-default-keybindings)
 ;;  (windmove-default-keybindings))
@@ -260,6 +263,7 @@
 
 ;; OS X config
 (when (eq system-type 'darwin)
+  (require 'bbc)
   (set-face-attribute 'default nil :family "Menlo")
   (set-face-attribute 'default nil :height 140)
   (setq-default line-spacing 6)
