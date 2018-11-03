@@ -19,7 +19,7 @@ install-i3:
 	mkdir -p ~/.i3
 	ln -s `pwd`/i3/config ~/.i3/config
 	ln -s `pwd`/i3/i3status.conf ~/.i3status.conf
-	ln -s `pwd`/compton.conf ~/.compton.conf
+#	ln -s `pwd`/compton.conf ~/.compton.conf
 
 install-git:
 	ln -s `pwd`/.gitconfig ~/.gitconfig
