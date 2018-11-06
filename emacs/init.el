@@ -18,6 +18,10 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+;; add location for manual file
+(let ((default-directory  "~/.emacs.d/lisp/"))
+  (normal-top-level-add-subdirs-to-load-path))
+
 ;; add /usr/local/bin to path
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
     (setq exec-path (append exec-path '("/usr/local/bin")))
@@ -76,6 +80,9 @@
   :ensure t)
 
 (use-package rust-mode
+  :ensure t)
+
+(use-package yaml-mode
   :ensure t)
 
 (use-package flycheck
@@ -312,7 +319,7 @@
  '(indent-tabs-mode nil)
  '(package-selected-packages
    (quote
-    (material-theme pug-mode js2-refactor xref-js2 rust-mode rjsx-mode markdown-mode tern-auto-complete tern scss-mode magit helm-projectile free-keys projectile ace-window helm-gtags flycheck web-mode json-mode js2-mode use-package helm)))
+    (yaml-mode material-theme pug-mode js2-refactor xref-js2 rust-mode rjsx-mode markdown-mode tern-auto-complete tern scss-mode magit helm-projectile free-keys projectile ace-window helm-gtags flycheck web-mode json-mode js2-mode use-package helm)))
  '(projectile-globally-ignored-files (quote ("TAGS" "GTAGS" "GRTAGS" "GPATH")))
  '(safe-local-variable-values
    (quote
