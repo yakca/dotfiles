@@ -26,11 +26,6 @@ setopt COMPLETE_ALIASES
 ## prompt
 autoload -Uz promptinit
 promptinit
-prompt walters
-
-# TODO: OS independent locals or plugin manager
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # general aliases
 alias b='~/blender-git/build/bin/blender'
@@ -39,6 +34,8 @@ alias g='git'
 alias v='vim'
 alias mkdir='mkdir -pv'
 alias df='df -h'
+alias l='ls --color=auto'
+alias ll='ls -altr --color=auto'
 
 # vagrant aliases
 alias vs='vagrant ssh'
@@ -48,7 +45,6 @@ alias vh='vagrant halt'
 alias vg='vagrant global-status'
 alias vr='vagrant reload'
 alias vrp='vagrant reload --provision'
-alias l='ls -altr --color=auto'
 
 # pacman aliases
 alias pacupg='sudo pacman -Syu'		# Synchronize with repositories and then upgrade packages that are out of date on the local system.
@@ -76,7 +72,21 @@ alias pacmir='sudo pacman -Syy'                    # Force refresh of all packag
 # macos/bbc
 if [[ `uname` = 'Darwin' ]]
 then
+   source /usr/local/share/antigen/antigen.zsh
    source /usr/local/bin/proxy-toggle.sh
 
-   alias l='ls -altrG'
+   alias l='ls -G'
+   alias ll='ls -altrG'
 fi
+
+# install packages
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-history-substring-search
+
+# pure prompt
+antigen bundle mafredri/zsh-async
+antigen bundle sindresorhus/pure
+
+antigen apply
