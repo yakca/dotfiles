@@ -96,7 +96,13 @@
 (use-package material-theme
   :ensure t
   :config
-  (load-theme 'material t))
+  (defun load-material-theme (frame)
+    (select-frame frame)
+    (load-theme 'material t))
+
+  (if (daemonp)
+      (add-hook 'after-make-frame-functions #'load-material-theme)
+    (load-theme 'material t)))
 
 (use-package ace-window
   :ensure t
