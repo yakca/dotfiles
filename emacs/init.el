@@ -27,9 +27,9 @@
     (setq exec-path (append exec-path '("/usr/local/bin")))
 
 ;; org-mode
-(setq org-directory "~/Dropbox/org")
-(setq org-agenda-restore-windows-after-quit t)
-(setq org-agenda-files
+(setq-default org-directory "~/Dropbox/org")
+(setq-default org-agenda-restore-windows-after-quit t)
+(setq-default org-agenda-files
       (quote ("~/Dropbox/org/agendas")))
 
 (global-set-key (kbd "C-c a") 'org-agenda)
@@ -87,7 +87,7 @@
 
 (use-package flycheck
   :ensure t
-  ;; :init (global-flycheck-mode)
+  :init (global-flycheck-mode)
   :config
   (setq-default flycheck-disabled-checkers
                 (append flycheck-disabled-checkers
@@ -251,7 +251,7 @@
 (scroll-bar-mode -1)
 
 ;; font size
-(set-default-font "Monospace-12")
+(set-frame-font "Monospace-12")
 (define-key global-map (kbd "C-+") 'text-scale-increase)
 (define-key global-map (kbd "C--") 'text-scale-decrease)
 
@@ -292,11 +292,11 @@
       c-basic-offset 4)
 
 ;; gdb
-(setq gdb-many-windows t
-      gdb-show-main t)
+(setq-default gdb-many-windows t
+              gdb-show-main t)
 
 ;; css
-(setq css-indent-offset 2)
+(setq-default css-indent-offset 2)
 
 ;;;; custom functions
 
