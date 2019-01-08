@@ -1,0 +1,18 @@
+{
+    "breadcrumbs.enabled": true,
+
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+
+    "flow.pathToFlow": "${workspaceRoot}/node_modules/.bin/flow",
+
+    "editor.fontSize": 14,
+    "editor.autoIndent": true,
+
+    "javascript.validate.enable": false,
+
+    "workbench.colorTheme": "Material Theme Darker High Contrast",
+    "workbench.editor.enablePreview": false,
+    "workbench.iconTheme": "eq-material-theme-icons-darker"
+}

@@ -47,3 +47,8 @@ install-cmus:
 install-zsh:
 	ln -s `pwd`/zsh/zshrc ~/.zshrc
 	ln -s `pwd`/zsh/zprofile ~/.zprofile
+
+install-vscode:
+	mkdir -p ~/Library/Application\ Support/Code/User/
+	ln -s `pwd`/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
+	ln -s `pwd`/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
