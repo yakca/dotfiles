@@ -14,5 +14,6 @@
 
     "workbench.colorTheme": "Material Theme Darker High Contrast",
     "workbench.editor.enablePreview": false,
-    "workbench.iconTheme": "eq-material-theme-icons-darker"
+    "workbench.iconTheme": "eq-material-theme-icons-darker",
+    "javascript.updateImportsOnFileMove.enabled": "always"
 }
