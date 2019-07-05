@@ -218,4 +218,4 @@ mode "$mode_system" {
 bindsym $mod+Pause mode "$mode_system"
 
 # use compositor to fix screen tearing
-exec --no-startup-id compton -CGb --vsync opengl-swc
+exec --no-startup-id compton -CGb
