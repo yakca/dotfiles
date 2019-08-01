@@ -274,13 +274,18 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
-;; OS X config
+;; macOS config
 (when (eq system-type 'darwin)
   (require 'bbc)
   (set-face-attribute 'default nil :family "Menlo")
   (set-face-attribute 'default nil :height 140)
   (setq-default line-spacing 6)
   (setq mac-command-modifier 'meta))
+
+;; Windows
+(when (eq system-type 'windows-nt)
+  (set-face-attribute 'default nil :family "Consolas")
+  (set-face-attribute 'default nil :height 140))
 
 ;; autoscroll tests and compilation windows
 (setq compilation-scroll-output 'first-error)
