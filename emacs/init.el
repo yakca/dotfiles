@@ -93,6 +93,16 @@
                 (append flycheck-disabled-checkers
                         '(javascript-jshint))))
 
+(use-package clang-format
+  :ensure t
+  :config
+  (fset 'c-indent-region 'clang-format-region)
+  (add-hook 'before-save-hook
+            (lambda () (when (member major-mode '(c-mode c++-mode glsl-mode))
+                         (progn (clang-format-buffer)
+                                ;; Return nil, to continue saving
+                                nil)))))
+
 (use-package material-theme
   :ensure t
   :config
@@ -330,7 +340,7 @@
  '(indent-tabs-mode nil)
  '(package-selected-packages
    (quote
-    (yaml-mode material-theme pug-mode js2-refactor xref-js2 rust-mode rjsx-mode markdown-mode tern-auto-complete tern scss-mode magit helm-projectile free-keys projectile ace-window helm-gtags flycheck web-mode json-mode js2-mode use-package helm)))
+    (clang-format yaml-mode material-theme pug-mode js2-refactor xref-js2 rust-mode rjsx-mode markdown-mode tern-auto-complete tern scss-mode magit helm-projectile free-keys projectile ace-window helm-gtags flycheck web-mode json-mode js2-mode use-package helm)))
  '(projectile-globally-ignored-files (quote ("TAGS" "GTAGS" "GRTAGS" "GPATH")))
  '(safe-local-variable-values
    (quote
