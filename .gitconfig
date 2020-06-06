@@ -34,6 +34,7 @@
 [core]
         editor = vim
         excludesfile = ~/.gitignore
+        autocrlf = true
 [push]
         default = matching
 [color]
